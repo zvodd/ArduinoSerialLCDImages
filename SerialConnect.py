@@ -2,7 +2,7 @@ import serial
 import time
 import os
 
-IMAGE_DIR = os.path.abspath('.')
+IMAGE_DIR = os.path.abspath('./images/')
 
 # SER_BAUD =  9600
 SER_BAUD =  115200
@@ -58,8 +58,9 @@ def wait_state(frames):
 
 
 def main():
-    frame_names = (os.join(IMAGE_DIR, fn) for fn in os.listdir(IMAGE_DIR)
-                                            if fn.endswith(.bin)
+    frame_names = (os.path.join(IMAGE_DIR, fn)
+                    for fn in os.listdir(IMAGE_DIR)
+                        if fn.endswith(".bin")
                   )
     frames = MyImages(frame_names)
     wait_state(frames)

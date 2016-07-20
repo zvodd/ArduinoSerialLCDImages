@@ -8,7 +8,7 @@ Assumes 84x48 image size.
 Color is coverted automaticly to black and white (if not poorly).
 """
 
-TARGET_DIRECTORY = "."
+TARGET_DIRECTORY = "./images/"
 
 def bmp_2_bytestring(filename):
     '''
@@ -59,6 +59,7 @@ def main():
              )
 
     for count, filename in enumerate(fn_gen):
+        filename =  os.path.join(cdir, filename)
         databytes = bmp_2_bytestring(filename)
         print "Read file'{}'".format(filename)
 
